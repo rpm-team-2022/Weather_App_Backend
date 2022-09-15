@@ -1,0 +1,33 @@
+{
+  "name": "weather_app_backend",
+  "version": "1.0.0",
+  "description": "Building an api to allow users to check the daily weather",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpm-team-2022/Weather_App_Backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rpm-team-2022/Weather_App_Backend/issues"
+  },
+  "homepage": "https://github.com/rpm-team-2022/Weather_App_Backend#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "expres": "0.0.5",
+    "fs": "0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^2.3.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.19",
+    "path": "^0.12.7"
+  }
+}
