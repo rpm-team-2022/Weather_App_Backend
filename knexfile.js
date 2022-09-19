@@ -1,4 +1,4 @@
-// require('dotenv').config();
+require('dotenv').config();
 
 
 // module.exports = {
@@ -25,46 +25,46 @@
 // };
 
 
-// module.exports = {
-//   development: {
-//     client: "mysql",
-//     connection: {
-//         host: '104.197.219.14',
-//         port: process.env.SERVER_PORT,
-//         user: 'root',
-//         password: process.env.SERVER_PASSWORD,
-//         database: process.env.SERVER_DB
-//     },
-//     useNullAsDefault: true,
-//     migrations: {
-//       directory: "./knex/migrations",
-//     },
-//     seeds: { directory: "./knex/seeds" },
-//   },
-//   pool: {
-//     afterCreate: (conn, done) => {
-//       conn.run("PRAGMA foreign_keys=ON", done);
-//     },
-//   },
-// };
-
-
 module.exports = {
   development: {
-    client: 'sqlite3',
-    connection: { filename: './knex/weatherdb.db3' },
+    client: "mysql",
+    connection: {
+        host: '104.197.219.14',
+        port: process.env.SERVER_PORT,
+        user: 'root',
+        password: process.env.SERVER_PASSWORD,
+        database: process.env.SERVER_DB
+    },
     useNullAsDefault: true,
     migrations: {
-      directory: './knex/migrations'
+      directory: "./knex/migrations",
     },
-    seeds: { directory: './knex/seeds' }
+    seeds: { directory: "./knex/seeds" },
   },
   pool: {
     afterCreate: (conn, done) => {
-      conn.run('PRAGMA foreign_keys = ON', done);
-    }
-  }
+      conn.run("PRAGMA foreign_keys=ON", done);
+    },
+  },
 };
+
+
+// module.exports = {
+//   development: {
+//     client: 'sqlite3',
+//     connection: { filename: './knex/weatherdb.db3' },
+//     useNullAsDefault: true,
+//     migrations: {
+//       directory: './knex/migrations'
+//     },
+//     seeds: { directory: './knex/seeds' }
+//   },
+//   pool: {
+//     afterCreate: (conn, done) => {
+//       conn.run('PRAGMA foreign_keys = ON', done);
+//     }
+//   }
+// };
 
 
 
