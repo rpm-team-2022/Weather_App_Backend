@@ -1,8 +1,8 @@
 require("events").EventEmitter.defaultMaxListeners = 15;
 
 const express=require('express')
-const server=express();
 const cors = require("cors");
+const server=express();
 const cookieParser = require("cookie-parser");
 const userAuth=require('./router/userAuth')
 // const bodyParser = require("body-parser");
