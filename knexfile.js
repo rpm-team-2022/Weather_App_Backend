@@ -1,4 +1,4 @@
-require('dotenv').config();
+// require('dotenv').config();
 
 
 // module.exports = {
@@ -50,20 +50,20 @@ require('dotenv').config();
 
 
 module.exports = {
-	development: {
-		client: 'sqlite3',
-		connection: { filename: './knex/weatherdb.db3' },
-		useNullAsDefault: true,
-		migrations: {
-			directory: './knex/migrations'
-		},
-		seeds: { directory: './knex/seeds' }
-	},
-	pool: {
-		afterCreate: (conn, done) => {
-			conn.run('PRAGMA foreign_keys = ON', done);
-		}
-	}
+  development: {
+    client: 'sqlite3',
+    connection: { filename: './knex/weatherdb.db3' },
+    useNullAsDefault: true,
+    migrations: {
+      directory: './knex/migrations'
+    },
+    seeds: { directory: './knex/seeds' }
+  },
+  pool: {
+    afterCreate: (conn, done) => {
+      conn.run('PRAGMA foreign_keys = ON', done);
+    }
+  }
 };
 
 
