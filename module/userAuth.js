@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs")
 
 
 async function findBy(filter) {
-    return await db("user").select("id", "firstName", "lastName", "email","userName").where(filter)
+    return await db("user").select("id", "firstName", "lastName", "email","userName","password").where(filter)
 }
 
 async function insertUser(user) {
