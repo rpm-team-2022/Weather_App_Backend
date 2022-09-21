@@ -48,7 +48,7 @@ router.post('/login', async (req, res, next) => {
                 user: payload,
             });
         } else {
-            res.status(203).json({ message: "Invalid credentials" });
+            res.status(401).json({ message: "Invalid credentials" });
         }
     } catch (err) {
         next(err)
