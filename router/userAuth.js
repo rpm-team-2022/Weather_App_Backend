@@ -30,7 +30,7 @@ router.post("/register", checkUserData, async (req, res, next) => {
 })
 
 
-router.post('/login', async (req, res, next) => {
+router.post('/login',async (req, res, next) => {
     try {
         const { userName, password } = req.body;
         let user = await userAuth_db.findBy({ userName })
@@ -42,6 +42,7 @@ router.post('/login', async (req, res, next) => {
             }
             const token = jwt.sign(payload, process.env.JWT_SECRET)
             res.cookie("token", token)
+           
             res.json({
                 message: `Welcome ${user[0].firstName} ${user[0].lastName}`,
                 token: token,

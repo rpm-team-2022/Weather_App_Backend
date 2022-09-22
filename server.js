@@ -4,7 +4,8 @@ const express=require('express')
 const cors = require("cors");
 const server=express();
 const cookieParser = require("cookie-parser");
-const userAuth=require('./router/userAuth')
+const userAuth=require('./router/userAuth');
+const userHistory=require('./router/userHistory')
 // const bodyParser = require("body-parser");
 
 
@@ -14,7 +15,8 @@ const userAuth=require('./router/userAuth')
 server.use(express.json());
 server.use(cors());
 server.use(cookieParser());
-server.use('/auth',userAuth)
+server.use('/auth',userAuth);
+server.use('/history',userHistory)
 // server.use(bodyParser.json());
 // server.use(bodyParser.urlencoded({ extended: true }));
 // server.use(bodyParser.text());
@@ -31,7 +33,8 @@ server.get("/",(req,res)=>{
 
 
 server.use((err, req, res, next) => {
-    res.status(500).json({ message: "Server Error" });
+    res.status(err.status || 500).json({ message: err.message });
+
   });
 
 module.exports=server;
