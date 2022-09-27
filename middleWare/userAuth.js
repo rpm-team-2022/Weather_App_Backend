@@ -50,8 +50,16 @@ const restricted = (req, res, next) => {
 // }
 
 
+const checkData=(req,res,next)=>{
+ if(req.body.city_name===""){
+    next({ status: 400, message: 'Missing data' })
+ }
+}
+
+
 module.exports = {
     checkUserData,
      restricted,
     // checkRole,
+    checkData
 }

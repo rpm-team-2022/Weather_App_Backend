@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express()
 const userHistory_db = require("../module/userHistory")
-const { restricted } = require("../middleWare/userAuth")
+const { restricted, checkData } = require("../middleWare/userAuth")
 
-router.post("/addToHistory", restricted, async (req, res, next) => {
+router.post("/addToHistory", checkData, restricted, async (req, res, next) => {
     try {
         await userHistory_db.addToHistory(req.body).then(resp => {
             if (resp.length > 0) {
@@ -18,16 +18,16 @@ router.post("/addToHistory", restricted, async (req, res, next) => {
 })
 
 
-router.get('/userHistory/:id', restricted,async (req, res, next) => {
+router.get('/userHistory/:id', restricted, async (req, res, next) => {
     try {
 
         await userHistory_db.getHistoryById(req.params.id).then(resp => {
-            
-            let history=Object.values(JSON.parse(JSON.stringify(resp)));
-            if(history.length>0){
-                res.json({history:history})
-            }else{
-                res.json({history:"User has no history!"})
+
+            let history = Object.values(JSON.parse(JSON.stringify(resp)));
+            if (history.length > 0) {
+                res.json({ history: history })
+            } else {
+                res.json({ history: "User has no history!" })
 
             }
         })

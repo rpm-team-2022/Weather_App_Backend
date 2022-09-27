@@ -11,6 +11,8 @@ exports.up = async function (knex) {
         tbl.text("temp_f")
         tbl.text("wind_dir")
         tbl.text("wind_mph")
+        tbl.text("humidity")
+        tbl.text("preciptation")
         tbl
             .integer("user_id")
             .unsigned()
