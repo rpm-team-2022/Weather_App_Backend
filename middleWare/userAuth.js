@@ -19,7 +19,7 @@ function checkUserData(req, res, next) {
 
 // AUTHENTICATION
 const restricted = (req, res, next) => {
-    
+
     const token = req.headers.authorization;
 
     if (token == null) {
@@ -28,7 +28,7 @@ const restricted = (req, res, next) => {
     }
 
     jwt.verify(token, process.env.JWT_SECRET, (err, decodedToken) => {
-      
+
         if (err) {
             console.log(err);
             next({ status: 401, message: 'Not authorized' });
@@ -50,16 +50,16 @@ const restricted = (req, res, next) => {
 // }
 
 
-const checkData=(req,res,next)=>{
- if(req.body.city_name===""){
-    next({ status: 400, message: 'Missing data' })
- }
+const checkData = (req, res, next) => {
+    if (req.body.city_name === "") {
+        next({ status: 400, message: 'Missing data' })
+    } else { next() }
 }
 
 
 module.exports = {
     checkUserData,
-     restricted,
+    restricted,
     // checkRole,
     checkData
 }
