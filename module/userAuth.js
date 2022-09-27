@@ -8,7 +8,7 @@ async function findBy(filter) {
 }
 
 async function insertUser(user) {
-    user.password = bcrypt.hashSync(user.password, 12)
+    user.password = bcrypt.hashSync(user.password, 8)
     const [id] = await db("user").insert(user)
 
     return await findBy({ id })
